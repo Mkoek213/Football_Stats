@@ -1,0 +1,40 @@
+@model List<FootballApp.Models.Zawodnik>
+
+@{
+    ViewData["Title"] = "Players";
+}
+
+<h2>@ViewData["MenuTitle"]</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Player</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Position</th>
+            <th>Team</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var player in Model)
+    {
+        <tr>
+            <td>@player.Id</td>
+            <td>@player.Imie</td>
+            <td>@player.Nazwisko</td>
+            <td>@player.Pozycja</td>
+            <td>@(player.Druzyna?.Nazwa ?? "Free Agent")</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@player.Id" class="btn btn-sm btn-info">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@player.Id" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
