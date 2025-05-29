@@ -9,13 +9,13 @@ public class FootballLeagueContext : DbContext
     public DbSet<Zawodnik> Zawodnicy { get; set; }
     public DbSet<Mecz> Mecze { get; set; }
     public DbSet<StatystykiZawodnika> StatystykiZawodnikow { get; set; }
-    public DbSet<User> Users { get; set; } // For authentication
+    public DbSet<User> Users { get; set; } 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder); // Good practice to call base method
+        base.OnModelCreating(modelBuilder); 
 
-        // Matches involving the team get deleted
+      
         modelBuilder.Entity<Mecz>()
             .HasOne(m => m.DruzynaDomowa)
             .WithMany(d => d.MeczeDomowe)
@@ -28,12 +28,11 @@ public class FootballLeagueContext : DbContext
             .HasForeignKey(m => m.DruzynaGościId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        // DO NOT delete players when team is deleted
         modelBuilder.Entity<Zawodnik>()
             .HasOne(z => z.Druzyna)
             .WithMany(d => d.Zawodnicy)
             .HasForeignKey(z => z.DruzynaId)
-            .OnDelete(DeleteBehavior.SetNull); // Important
+            .OnDelete(DeleteBehavior.SetNull); 
 
         modelBuilder.Entity<StatystykiZawodnika>()
             .HasOne(s => s.Zawodnik)
