@@ -122,3 +122,15 @@ The "Top Scorers" section displays the top 3 goal scorers in the league.
 * **Admin users** have full access to all application sections, including user management.
 * **Regular users** can view data and manage teams, players, matches, and statistics but cannot manage users.
 * Passwords are stored securely using industry-standard **hashing techniques**.
+
+## ⚙️ API Client Demo (For Developers)
+
+Included in this repository is a separate project located in the `ApiClientDemo` folder. This project serves as a demonstration of how to interact with the application's API programmatically.
+
+Inside the `ApiClientDemo` project, you will find a `Program.cs` file. This file contains example:
+* **GET requests** to retrieve player data.
+* **POST requests** to add new players.
+
+You can examine and modify these examples to understand how to integrate with the player data API or to perform batch operations.
+### 🖼️ API Client Demo
+![API Client Demo](GitHubphotos/ApiClientDemo.png)
