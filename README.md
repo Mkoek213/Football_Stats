@@ -22,7 +22,7 @@ Once the application starts, navigate to the following URL in your web browser:
 You will be greeted by the login page.
 
 ### 🖼️ Login Page
-![Login Page](https://github.com/Mkoek213/Football_Stats/GitHubphotos/LoginPage.png)
+![Login Page](GitHubphotos/LoginPage.png)
 
 ## 🔐 First Login
 
@@ -34,7 +34,7 @@ Use the following credentials to log in for the first time:
 **Note:** Only the admin can manage users. Regular users will have limited access.
 
 ### 🖼️ Admin User Management Panel
-![Admin User Management Panel](https://github.com/Mkoek213/Football_Stats/GitHubphotos/AdminUserManagementPanel.png)
+![Admin User Management Panel](GitHubphotos/AdminUserManagementPanel.png)
 
 ## 👥 Teams Management
 
@@ -51,14 +51,14 @@ In the "Teams" section, you can perform the following actions:
         * If no result is provided for a match, it will be marked as "Upcoming".
 
 ### 🖼️ Teams View
-![Teams View](https://github.com/Mkoek213/Football_Stats/GitHubphotos/TeamsView.png)
+![Teams View](GitHubphotos/TeamsView.png)
 
 ### 🖼️ Add Team with Players
-![Add Team](https://github.com/Mkoek213/Football_Stats/GitHubphotos/AddTeam.png)
-![Add Team with Players](https://github.com/Mkoek213/Football_Stats/GitHubphotos/AddTeamWithPlayers.png)
+![Add Team](GitHubphotos/AddTeam.png)
+![Add Team with Players](GitHubphotos/AddTeamWithPlayers.png)
 
 ### 🖼️ Add Team with Matches
-![Upcoming Matches](https://github.com/Mkoek213/Football_Stats/GitHubphotos/UpcomingMatches.png)
+![Upcoming Matches](GitHubphotos/UpcomingMatches.png)
 
 ## 🧍 Players Management
 
@@ -70,13 +70,13 @@ In the "Players" section, you can:
     * ⚠️ **Warning:** Deleting a player will also remove their statistics from the system.
 
 ### 🖼️ Players List
-![Players List](https://github.com/Mkoek213/Football_Stats/GitHubphotos/PlayersList.png)
+![Players List](GitHubphotos/PlayersList.png)
 
 ### 🖼️ Add Player
-![Add Player](https://github.com/Mkoek213/Football_Stats/GitHubphotos/AddPlayer.png)
+![Add Player](GitHubphotos/AddPlayer.png)
 
 ### 🖼️ Edit Player
-![Edit Player](https://github.com/Mkoek213/Football_Stats/GitHubphotos/EditPlayer.png)
+![Edit Player](GitHubphotos/EditPlayer.png)
 
 ## 🏟️ Matches Management
 
@@ -87,13 +87,13 @@ The "Matches" section allows you to:
 * **Delete matches.**
 
 ### 🖼️ Matches List
-![Matches List](https://github.com/Mkoek213/Football_Stats/GitHubphotos/MatchesList.png)
+![Matches List](GitHubphotos/MatchesList.png)
 
 ### 🖼️ Add Match
-![Add/Edit Match](https://github.com/Mkoek213/Football_Stats/GitHubphotos/AddMatch.png)
+![Add/Edit Match](GitHubphotos/AddMatch.png)
 
 ### 🖼️ Edit Match
-![Edit Match](https://github.com/Mkoek213/Football_Stats/GitHubphotos/EditMatch.png)
+![Edit Match](GitHubphotos/EditMatch.png)
 
 ## 📊 Player Statistics
 
@@ -105,17 +105,17 @@ In the "Player Stats" section, you can:
     * Appearances
 
 ### 🖼️ Player Statistics View
-![Player Statistics View](https://github.com/Mkoek213/Football_Stats/GitHubphotos/PlayerStatisticsView.png)
+![Player Statistics View](GitHubphotos/PlayerStatisticsView.png)
 
 ### 🖼️ Player Statistics Editor
-![Player Statistics Editor](https://github.com/Mkoek213/Football_Stats/GitHubphotos/PlayerStatisticsEditor.png)
+![Player Statistics Editor](GitHubphotos/PlayerStatisticsEditor.png)
 
 ## 🥇 Top Scorers
 
 The "Top Scorers" section displays the top 3 goal scorers in the league.
 
 ### 🖼️ Top Scorers View
-![Top Scorers View](https://github.com/Mkoek213/Football_Stats/GitHubphotos/TopScorersView.png)
+![Top Scorers View](GitHubphotos/TopScorersView.png)
 
 ## 🔒 Authentication & Authorization
 
