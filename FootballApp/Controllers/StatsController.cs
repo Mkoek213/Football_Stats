@@ -16,11 +16,11 @@ public class StatsController : Controller
     }
 
     public IActionResult Index()
-        {
-            ViewData["MenuTitle"] = "Player Stats";
-            var stats = _context.StatystykiZawodnikow.Include(s => s.Zawodnik).ToList();
-            return View(stats);
-        }
+    {
+        ViewData["MenuTitle"] = "Player Stats";
+        var stats = _context.StatystykiZawodnikow.Include(s => s.Zawodnik).ToList();
+        return View(stats);
+    }
 
     public IActionResult Edit(int id)
     {
@@ -49,4 +49,16 @@ public class StatsController : Controller
 
         return View(updatedStats);
     }
+    
+    public IActionResult KrolStrzelcow()
+    {
+        var topScorers = _context.StatystykiZawodnikow
+            .Include(s => s.Zawodnik)
+            .OrderByDescending(s => s.Gole)
+            .Take(3)
+            .ToList();
+
+        return View(topScorers);
+    }
+
 }

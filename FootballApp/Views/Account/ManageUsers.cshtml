@@ -1,0 +1,42 @@
+@model List<FootballApp.Models.User>
+@{
+    ViewData["Title"] = "Zarządzanie użytkownikami";
+}
+
+<h2>Zarządzanie użytkownikami</h2>
+
+<a class="btn btn-primary" href="@Url.Action("AddUser", "Account")">Dodaj użytkownika</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nazwa użytkownika</th>
+            <th>Rola</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Username</td>
+                <td>@user.Role</td>
+                <td>
+                    @if (user.Username != "admin")
+                    {
+                        <form method="post" asp-action="DeleteUser" asp-controller="Account">
+                            <input type="hidden" name="id" value="@user.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Usuń</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Nie można usunąć</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

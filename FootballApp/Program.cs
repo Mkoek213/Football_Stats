@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using FootballApp.Models;
 using Microsoft.EntityFrameworkCore;
-
+using System.Security.Claims;
+using BCrypt.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,11 +10,12 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<FootballLeagueContext>(options =>
     options.UseSqlite("Data Source=footballleague.db"));
 
-// Add cookie authentication
+// Cookie authentication + access denied
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
         options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/Account/AccessDenied";
     });
 
 var app = builder.Build();
@@ -26,10 +28,8 @@ if (!app.Environment.IsDevelopment())
 
 // app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 
-// Add these middlewares
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -37,11 +37,25 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+// Seeding
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<FootballLeagueContext>();
 
     context.Database.EnsureCreated();
+
+    // Admin user seed
+    if (!context.Users.Any())
+    {
+        var adminUser = new User
+        {
+            Username = "admin",
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword("admin"),
+            Role = "Admin"
+        };
+        context.Users.Add(adminUser);
+        context.SaveChanges();
+    }
 
     if (!context.Druzyny.Any())
     {

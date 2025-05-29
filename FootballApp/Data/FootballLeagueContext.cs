@@ -9,6 +9,7 @@ public class FootballLeagueContext : DbContext
     public DbSet<Zawodnik> Zawodnicy { get; set; }
     public DbSet<Mecz> Mecze { get; set; }
     public DbSet<StatystykiZawodnika> StatystykiZawodnikow { get; set; }
+    public DbSet<User> Users { get; set; } // For authentication
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -36,8 +37,8 @@ public class FootballLeagueContext : DbContext
 
         modelBuilder.Entity<StatystykiZawodnika>()
             .HasOne(s => s.Zawodnik)
-            .WithOne(z => z.Statystyki) 
-            .HasForeignKey<StatystykiZawodnika>(s => s.ZawodnikId) 
-            .OnDelete(DeleteBehavior.Cascade); 
+            .WithOne(z => z.Statystyki)
+            .HasForeignKey<StatystykiZawodnika>(s => s.ZawodnikId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

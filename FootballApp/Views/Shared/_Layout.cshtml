@@ -28,6 +28,7 @@
                                 <li><a class="dropdown-item" asp-controller="Players" asp-action="Index">Players</a></li>
                                 <li><a class="dropdown-item" asp-controller="Matches" asp-action="Index">Matches</a></li>
                                 <li><a class="dropdown-item" asp-controller="Stats" asp-action="Index">Player Stats</a></li>
+                                <li><a class="dropdown-item" asp-controller="Stats" asp-action="KrolStrzelcow">Top Scorers</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -44,6 +45,12 @@
                     {
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+                        </li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Account" asp-action="ManageUsers">Użytkownicy</a>
                         </li>
                     }
                     </ul>
