@@ -22,4 +22,31 @@ public class StatsController : Controller
             return View(stats);
         }
 
+    public IActionResult Edit(int id)
+    {
+        var stat = _context.StatystykiZawodnikow
+            .Include(s => s.Zawodnik)
+            .FirstOrDefault(s => s.Id == id);
+
+        if (stat == null)
+            return NotFound();
+
+        return View(stat);
+    }
+
+    [HttpPost]
+    public IActionResult Edit(int id, StatystykiZawodnika updatedStats)
+    {
+        if (id != updatedStats.Id)
+            return BadRequest();
+
+        if (ModelState.IsValid)
+        {
+            _context.Update(updatedStats);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
+        return View(updatedStats);
+    }
 }

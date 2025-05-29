@@ -23,6 +23,10 @@
             <td>@stat.Mecze</td>
             <td>@stat.Gole</td>
             <td>@stat.Asysty</td>
+            <td>
+                <a asp-controller="Stats" asp-action="Edit" asp-route-id="@stat.Id" class="btn btn-sm btn-warning">Edit</a>
+            </td>
+
         </tr>
     }
     </tbody>

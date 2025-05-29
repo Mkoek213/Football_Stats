@@ -1,0 +1,30 @@
+@model FootballApp.Models.StatystykiZawodnika
+@{
+    ViewData["Title"] = "Edit Player Stats";
+}
+
+<h2>Edit Stats for @Model.Zawodnik.Imie @Model.Zawodnik.Nazwisko</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="ZawodnikId" />
+
+    <div class="mb-3">
+        <label asp-for="Mecze" class="form-label">Matches</label>
+        <input asp-for="Mecze" class="form-control" />
+        <span asp-validation-for="Mecze" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Gole" class="form-label">Goals</label>
+        <input asp-for="Gole" class="form-control" />
+        <span asp-validation-for="Gole" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Asysty" class="form-label">Assists</label>
+        <input asp-for="Asysty" class="form-control" />
+        <span asp-validation-for="Asysty" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
